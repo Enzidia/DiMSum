@@ -290,6 +290,7 @@ dimsum <- function(
   ### Start pipeline tracking
   pipeline <- list()
   pipeline[['initial']] <- exp_metadata
+  print("Using modified version of DiMSum; Weighing mechanism of error model based on distance to WT has been turned of")
 
   ### Stage 0 (WRAP): Run demultiplex on all fastq files
   pipeline[['0_demultiplex']] <- dimsum_stage_demultiplex(dimsum_meta = pipeline[['initial']], demultiplex_outpath = file.path(pipeline[['initial']][["tmp_path"]], "0_demultiplex"))
