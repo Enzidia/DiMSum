@@ -254,9 +254,11 @@ dimsum__error_model <- function(
   #weight variants according to how many other variants with same # of mutations are around
   if(dimsum_meta[["sequenceType"]]=="coding" & dimsum_meta[["mixedSubstitutions"]]){
     #variant counts already aggregated at AA level
-    work_data[, error_model_weighting := sqrt(max(.N, sqrt(nrow(work_data)))), Nham_aa]
+    #work_data[, error_model_weighting := sqrt(max(.N, sqrt(nrow(work_data)))), Nham_aa]
+    work_data[, error_model_weighting := 1]
   }else{
-    work_data[, error_model_weighting := sqrt(max(.N, sqrt(nrow(work_data)))), Nham_nt]
+    #work_data[, error_model_weighting := sqrt(max(.N, sqrt(nrow(work_data)))), Nham_nt]
+    work_data[, error_model_weighting := 1]
   }
 
   #Fit and write error model to file
